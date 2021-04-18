@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+     crossorigin="anonymous">
+   <script type="text/javascript">
+    function aAccio(a) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status !== 200) {
+             alert("error processant");
+        }
+        };
+        xhttp.open("GET", "/accio/" + a, true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send("");
+    }
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<h1>Auto vMix</h1>
+<a href="/config">Carregar Configuracio</a>
+<br>
+<br>
+<a href="/">Refrescar</a>
+<hr>
+<h2>Events planificats</h2>
+<table class="table table-striped">
+    <tr><th>Nom</th><th>data</th><th>tasca</th></tr>
+    {% for item in jobs %}
+    <TR>
+       <TD class="c2">{{item.name}}</TD>
+       <TD class="c3">{{item.date}}</TD>
+       <TD class="c4">{{item.action}}</TD>
+    </TR>
+    {% endfor %}
+    </table>
+<hr>
+<h2>Accions</h2>
+<button type="button" class='btn btn-outline-primary'onclick="aAccio('aNegre');">A Negre</button> 
+<button type="button" class='btn btn-outline-info' onclick="aAccio('aPrograma');">A Programa</button> 
+<button type="button" class='btn btn-outline-warning' onclick="aAccio('aCareta');">A Careta</button> 
+<button type="button" class='btn btn-outline-success' onclick="aAccio('iniciaStreaming');">Inicia Streaming</button> 
+<button type="button" class='btn btn-outline-danger' onclick="aAccio('finalitzaStreaming');">Finalitza Streaming</button> 
+<button type="button" class='btn btn-outline-success' onclick="aAccio('iniciaGravacio');">Inicia Gravació</button> 
+<button type="button" class='btn btn-outline-danger' onclick="aAccio('finalitzaGravacio');">Finalitza Gravació</button> 
+<hr>
+<h2>Configuració carregada</h2>
+<pre><tt>{{config}}</tt></pre>
+</body>
+</html>

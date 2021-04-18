@@ -1,0 +1,23 @@
+{
+    "parameters": {
+        "url": "http://172.24.31.76:8088",
+        "username": "admin",
+        "password": "admin",
+        "preset": "d:\\vmix\\Auto3_SD_rtmp.vmix",
+        "logo": "d:\\vmix\\mosques\\33.png",
+        "loop": "d:\\vmix\\sensefi\\SFI_Tv3.flv",
+        "titol": "Programa especial de prova",
+        "font": "DIREKT-D01134 (NDI out 1 - INTINOR2_SRT1)"
+    },
+    "start_time": "now",
+    "events": {
+        "event1": {"delay": "30", "action": "caratula"},
+        "event1.1": {"delay": "0", "action": "iniciaStreaming"},
+        "event2": {"delay": "60", "action": "programa"},
+        "event2.1": {"delay": "0", "action": "iniciaGravacio"},
+        "event2.2": {"delay": "120", "action": "finalitzaGravacio"},
+        "event3": {"delay": "0", "action": "caratula"},
+        "event3.2": {"delay": "20", "action": "finalitzaStreaming"},
+        "event4": {"delay": "5", "action": "off"}
+    }
+}
